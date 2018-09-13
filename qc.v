@@ -3,6 +3,12 @@ From Coq Require Import List PeanoNat.
 From QuickChick Require Import QuickChick.
 Import ListNotations QcNotation.
 
+Instance noshrink_nat : Shrink nat :=
+  {| shrink _ := [] |}.
+
+Instance noshrink_list : Shrink (list nat) :=
+  {| shrink _ := [] |}.
+
 (** [remove x l] removes all [x]s from [l]. *)
 Fixpoint remove (x : nat) (l : list nat) : list nat :=
   match l with

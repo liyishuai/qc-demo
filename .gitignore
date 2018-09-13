@@ -53,3 +53,6 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
+Add
+qc
+.DS_Store
