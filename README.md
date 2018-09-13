@@ -1,2 +1,2 @@
 # qc-demo
-QuickChick demo for CIS 700
+QuickCheck demo for CIS 700
