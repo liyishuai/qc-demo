@@ -1,3 +1,0 @@
-[submodule "httpd"]
-	path = httpd
-	url = https://github.com/liyishuai/httpd

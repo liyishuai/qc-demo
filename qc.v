@@ -3,11 +3,11 @@ From Coq Require Import List PeanoNat.
 From QuickChick Require Import QuickChick.
 Import ListNotations QcNotation.
 
-Instance noshrink_nat : Shrink nat :=
-  {| shrink _ := [] |}.
+(* Instance noshrink_nat : Shrink nat := *)
+(*   {| shrink _ := [] |}. *)
 
-Instance noshrink_list : Shrink (list nat) :=
-  {| shrink _ := [] |}.
+(* Instance noshrink_list : Shrink (list nat) := *)
+(*   {| shrink _ := [] |}. *)
 
 (** [remove x l] removes all [x]s from [l]. *)
 Fixpoint remove (x : nat) (l : list nat) : list nat :=
@@ -26,7 +26,7 @@ Definition remove_not_In :=
 
 Conjecture removeP : remove_not_In.
 
-(*! QuickChick removeP. *)
+QuickCheck removeP.
 
 (* Theorem proof_remove_not_In : remove_not_In. *)
 (* Proof with simpl; auto. *)
@@ -42,20 +42,12 @@ Conjecture removeP : remove_not_In.
 (*   - apply IHl in H... *)
 (* Qed. *)
 
-Declare ML Module "add".
-Parameter add' : nat -> nat -> nat.
-Extract Constant add' => "Add.add".
+Definition eq_symmetry' (x y : nat) : Checker :=
+  (x =? y) ==> (y =? x).
 
-(** Formal, full specification:
-    [add'] behaves the same as [+].
- *)
-Conjecture add_prop :
-  forall (x y : nat),
-    add' x y = x + y.
-
-(*! QuickChick add_prop. *)
+QuickCheck eq_symmetry'.
 
 Definition eq_symmetry (x y : nat) : bool :=
   (x = y -> y = x)?.
 
-(*! QuickCheck eq_symmetry. *)
+QuickCheck eq_symmetry.
