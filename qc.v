@@ -54,3 +54,8 @@ Conjecture add_prop :
     add' x y = x + y.
 
 (*! QuickChick add_prop. *)
+
+Definition eq_symmetry (x y : nat) : bool :=
+  (x = y -> y = x)?.
+
+(*! QuickCheck eq_symmetry. *)
