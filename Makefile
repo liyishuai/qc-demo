@@ -4,14 +4,14 @@ TMP_DIR=../_qc_qc-demo.tmp
 all: Makefile.coq add.cmxs Add
 	$(MAKE) -f $<
 
-test: qc
+test: quicksort
 	time ./$<
 	time $(QC)
 
 Makefile.coq: _CoqProject
 	coq_makefile -f $< -o $@
 
-qc: qc.hs
+quicksort: quicksort.hs
 	ghc $@
 
 clean:

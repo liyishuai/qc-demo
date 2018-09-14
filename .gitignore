@@ -54,5 +54,5 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 Add
-qc
+quicksort
 .DS_Store
